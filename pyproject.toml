@@ -1,0 +1,18 @@
+[project]
+name = "ontology-marketing-research"
+version = "0.1.0"
+description = "RAG-based insurance marketing recommendation pipeline"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "openai",
+    "tqdm",
+    "openpyxl>=3.1.5",
+]
+
+[tool.uv]
+dev-dependencies = []
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
