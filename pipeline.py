@@ -8,8 +8,8 @@ from modules.evaluation import Evaluator
 from modules.field_mapping import FieldMapper
 from modules.llm_call import LLMCaller
 
-# from modules.prompt_v0 import build_client_prompt
-from modules.prompt_v1 import build_client_prompt
+# from modules.prompt_v0 import build_client_prompt  # 模式1：纯大模型推理模式
+from modules.prompt_v1 import build_client_prompt  # 模式2：加入本体逻辑
 from modules.result_processor import ResultProcessor
 
 warnings.filterwarnings('ignore')
