@@ -7,9 +7,9 @@ from modules.data_preprocessing import DataPreprocessor
 from modules.evaluation import Evaluator
 from modules.field_mapping import FieldMapper
 from modules.llm_call import LLMCaller
-from modules.prompt_v0 import build_client_prompt
 
-# from modules.prompt_v1 import build_client_prompt
+# from modules.prompt_v0 import build_client_prompt
+from modules.prompt_v1 import build_client_prompt
 from modules.result_processor import ResultProcessor
 
 warnings.filterwarnings('ignore')
@@ -34,7 +34,7 @@ def main():
     responses = caller.batch_inference(
         client_full_info,
         prompt_builder=build_client_prompt,
-        sample_size=10,
+        sample_size=60,
         ts = ts
     )
 

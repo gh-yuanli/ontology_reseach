@@ -18,20 +18,20 @@ def get_customer_triples(ttl_file_path: str, customer_id: str):
     g = Graph()
     g.parse(ttl_file_path, format='turtle')
     customer_uri = URIRef(f"http://example.org/insurance/customer/{customer_id}")
-    
+
     result = {
         "customer_uri": str(customer_uri),
         "customer_triples": [],   # 客户直接属性三元组
         "related_entities": {},   # 按类型聚合的关联实体及其三元组
         "all_triples": []         # 全部三元组
     }
-    
+
     # 收集客户直接三元组
     for s, p, o in g.triples((customer_uri, None, None)):
         triple = {"subject": str(s), "predicate": str(p), "object": str(o), "object_type": type(o).__name__}
         result["customer_triples"].append(triple)
         result["all_triples"].append(triple)
-        
+
         # 若对象是 URI 且非 rdf:type，则提取关联实体的所有三元组
         if isinstance(o, URIRef) and p != RDF.type:
             entity_uri = o
